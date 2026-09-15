@@ -1,0 +1,21 @@
+---
+import { Font } from "astro:assets";
+---
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <!-- <link rel="stylesheet" href="/src/styles/global.css" /> -->
+        <Font cssVariable="--font-title" />
+        <Font cssVariable="--font-body" />
+        <meta name="description" content="template de link in bio" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body class="bg-background min-h-dvh max-w-2xl flex flex-col items-center p-4 m-auto">
+        <slot />
+    </body>
+</html>

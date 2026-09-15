@@ -1,17 +1,31 @@
 ---
+import Footer from "../components/Footer.astro";
+import IconSocialMedia from "../components/IconSocialMedia.astro";
+import Links from "../components/Links.astro";
+import Profile from "../components/Profile.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 
+import Pencil from "../assets/icons/pencil.svg";
+import { links } from "../data/links.js";
+import { socialMedia } from "../data/socialMedia.js";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+    <main class="w-full space-y-6 rounded-lg bg-background">
+        <Profile />
+        <section class="flex justify-center gap-5">
+            {socialMedia.map((media) => (
+                <IconSocialMedia {...media} />
+            ))}
+        </section>
+        <section class="flex flex-col gap-2">
+            <h2 class="text-lg font-title font-semibold flex gap-2">Links & Projetos <Pencil/> </h2>
+            {links.map((link) => (
+                <Links {...link} />
+            ))}
+        </section>
+        
+        <Footer />
+    </main>
+</BaseLayout>

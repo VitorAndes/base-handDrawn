@@ -1,0 +1,25 @@
+---
+import ArrowRight from "../assets/icons/arrowRight.svg";
+
+const { link_name, link_url, link_icon, link_description, link_inverted } = Astro.props;
+---
+
+    <a
+    class=` w-full h-20 shadow-[3px_3px_0px_rgba(12,12,0,100)] p-5 transition-all duration-300 hover:scale-105 group rounded-lg flex justify-between items-center outline-2 ${link_inverted ? 'bg-secondary-200  outline-secondary-100 ' : 'bg-background outline-dotted text-primary'}`
+    href={link_url}
+    target="_blank"
+>   
+    <div class="flex items-center gap-2.5 text-start">
+        <div class=`bg-background w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-[3px_3px_0px_rgba(12,12,0,100)]  rounded-lg ${link_inverted ? 'shadow-secondary-100' : 'shadow-shadow'}`}>
+            <img src={link_icon.src} alt="icon for link" />
+        </div>
+        <div >
+            <p class="font-title font-bold">{link_name}</p>
+            <p class="font-body text-tertiary text-sm">{link_description}</p>
+        </div>
+    </div>
+
+    <div class=" w-6 h-6 flex items-center justify-center rounded-full transition-all duration-300 group-hover:translate-x-2">
+        <ArrowRight />
+    </div>
+</a>

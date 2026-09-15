@@ -1,0 +1,48 @@
+---
+import Border from "../assets/icons/border.svg";
+import SparkleBlack from "../assets/icons/sparkleBlack.svg";
+import SparkleOrange from "../assets/icons/sparkleOrange.svg";
+import { profile } from "../data/profile";
+
+---
+
+<div class="flex flex-col items-center gap-5">
+        
+    <div class="flex justify-center items-center">
+            <img
+            class="w-56 h-56 rounded-full shadow-sm shadow-black absolute border-dotted border-secondary border-2"
+            src="https://i.pinimg.com/1200x/b2/80/fd/b280fde4f549bb23ecefd15c660843bb.jpg"
+            alt="avatar"
+            fetchpriority="high"
+        />
+                <Border class="relative left-7  "/>
+                <SparkleOrange class="relative bottom-12 left-4" />
+                <SparkleBlack class="relative top-20 right-60" />
+            
+    </div>
+
+    <div class="flex flex-col items-center gap-5">
+        <h1 class="font-title font-bold text-3xl">{profile.name}</h1>
+
+        <div class="flex gap-1">
+            {profile.profession.map((profession, index) => (
+                <p class="font-title uppercase text-sm font-semibold text-secondary">
+                    {profession.name}
+                    {index !== profile.profession.length - 1 && " • "}
+                </p>
+            ))}
+        </div>
+
+        <ul class="flex gap-5">
+            {profile.badges.map((badge) => (
+                <li
+                    class={`bg-neutral text-primary flex items-center gap-2 rounded-md px-7 py-1 shadow-[2px_2px_0px_0_rgba(12,12,12,100)] shadow-shadow ${badge.inverted ? "outline-secondary-200 outline-solid bg-secondary-100 outline-1 " : "outline-dotted outline-1 outline-primary"}`}
+                >
+                    <img src={badge.icon.src} alt={badge.name} class="w-5 h-5" />
+                    {badge.name}
+                </li>
+            ))}
+        </ul>
+    </div>
+    
+</div>
